@@ -1,0 +1,25 @@
+{
+  "name": "expresstutorial",
+  "version": "1.0.0",
+  "description": "Express Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phanquan/Express-Example.git"
+  },
+  "author": "Phanquan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phanquan/Express-Example/issues"
+  },
+  "homepage": "https://github.com/Phanquan/Express-Example#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0",
+    "nunjucks": "^3.0.1"
+  }
+}

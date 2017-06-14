@@ -1,22 +1,3 @@
-# Express Example
-### .views/QueryStringExample.html
-
-```html
-<!--truyền thuộc tính action và method cho form-->
-<form action="/form" method="GET">
-    <!--sử dụng nunjucks truyền vào value của input-->
-    <div><input type="number" name="num1" value="{{a}}"> </div>
-    <!--sử dụng nunjucks truyền vào value của input-->
-    <div><input type="number" name="num2" value="{{b}}"></div>
-    <!--sử dụng nunjucks truyền vào value sum-->
-    <div> <h3>{{sum}}</h3></div>
-    <!--truyền thuộc tính submit cho button để đẩy value lên url-->
-    <div><button type="submit">Sum</button></div>
-</form>
-```
-
-### ./QueeryStringExample.js
-```javascript
 const express = require('express')
 const app = express()
 const nunjucks = require('nunjucks')
@@ -57,7 +38,3 @@ app.get('/form', (req, res) => {
 app.listen(3000, ()=>{
     console.log('Server listening on port 3000')
 })
-```
-
-### Kết quả
-![result](./images/abc.png)

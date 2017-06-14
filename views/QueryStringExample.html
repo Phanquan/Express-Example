@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Query String Example</title>
+</head>
+
+<body>
+    <article>
+        <!--truyền thuộc tính action và method cho form-->
+        <form action="/form" method="GET">
+            <!--sử dụng nunjucks truyền vào value của input-->
+            <div><input type="number" name="num1" value="{{a}}"> </div>
+            <!--sử dụng nunjucks truyền vào value của input-->
+            <div><input type="number" name="num2" value="{{b}}"></div>
+            <!--sử dụng nunjucks truyền vào value sum-->
+            <div> <h3>{{sum}}</h3></div>
+            <!--truyền thuộc tính submit cho button để đẩy value lên url-->
+            <div><button type="submit">Sum</button></div>
+        </form>
+    </article>
+</body>
+
+</html>
