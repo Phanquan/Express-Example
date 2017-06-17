@@ -60,48 +60,24 @@ const upload = multer({
     }
 })
 
-// require các module để sửa ảnh
-const fs = require('fs')
-const gm = require('gm').subClass({ imageMagick: true })
-// hàm sửa ảnh
-const editImage = (req) => { // truyền vào req của app.post
-    return new Promise((resolve, reject) => { // trả về 1 promise
-        // khai báo tới file ảnh vửa upload
-        let filePath = req.file.destination + req.file.filename
-        // bắt đầu sửa ảnh
-        gm(filePath)
-            .font("Helvetica.ttf", 24) //font text
-            .drawText(50, 50, id) // tọa độ của text và nội dung là id
-            .write(filePath, (err) => { //chép đè lên ảnh cũ
-                if (err) { console.log(err) }
-                else { console.log('Done'); }
-                resolve() // sau khi xong thì resolve 
-            })
-    });
-}
-// hàm render ảnh đã được sửa
-const renderEditedImage = (req, res) => { //truyền vào req,res của app.post
-    return new Promise((resolve, reject) => { //trả về một promise
-        res.render('Upload.html', { //render lại trang với mes và img bằng nunjucks 
-            message: `${req.file.originalname} is successfully uploaded.`,
-            img: `uploads/${req.file.filename}`
-        }, resolve()) // sau khi xong thì resolve 
-    });
-}
-
-// sử dụng promise,async,await để upload,sửa và view file đơn
-app.post('/upload', upload.single('img'), async (req, res, next) => {
+app.post('/upload', upload.single('img'), (req, res, next) => { //upload file đơn
     // Bắt đầu upload
+    console.log(req.file)
+    if (next) { //nếu có lỗi thì báo lỗi
+        console.log(next)
+    }
+
     // Nếu file không tồn tại hoặc bỏ qua lúc fileFilter thì render lại trang với message mới
     if (!req.file) {
         res.render('Upload.html', {
             message: "no file to upload or file type is not supported"
         })
     } else { // nếu file qua được fileFilter thì upload và show ảnh thông qua nunjucjs render
-
-        // await một promise cho tới khi nó resolve 
-        await editImage(req) // truyền vào req của upload
-        await renderEditedImage(req, res) //truyền vào req và res của upload
+        res.render('Upload.html', {
+            message: `${req.file.originalname} is successfully uploaded.`,
+            // img: `/uploads/${file.originalname}`
+            img: `uploads/${req.file.filename}`
+        })
     }
 })
 //----------------------------------
