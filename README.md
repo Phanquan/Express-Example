@@ -218,14 +218,15 @@ app.listen(3000, () => {
 //----------------------------------
 ```
 - Kết quả:
-  - Fail:  
 
-![fail](./images/fail.png)
+- Fail:  
 
-  - Successed (Khi chưa sửa và up ảnh đã sửa):  
+  ![fail](./images/fail.png)
 
-![success](./images/succ.png)
+- Successed (Khi chưa sửa và up ảnh đã sửa):  
 
-  - Completed (Sửa và up ảnh vừa sửa):  
+  ![success](./images/succ.png)
 
-![complete](./images/example.png)
+- Completed (Sửa và up ảnh vừa sửa):  
+
+  ![complete](./images/example.png)
